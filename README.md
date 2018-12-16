@@ -1,2 +1,2 @@
 # sf-oauth-node-example
-Node Example
+Salesforce OAuth Web-Server flow example in NodeJS

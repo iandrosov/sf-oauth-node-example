@@ -1,0 +1,23 @@
+{
+  "name": "sf-oauth-node-example",
+  "version": "1.0.0",
+  "description": "Salesforce OAuth example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iandrosov/sf-oauth-node-example.git"
+  },
+  "author": "Igor Androsov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iandrosov/sf-oauth-node-example/issues"
+  },
+  "homepage": "https://github.com/iandrosov/sf-oauth-node-example#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4"
+  }
+}
