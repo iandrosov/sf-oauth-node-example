@@ -32,48 +32,66 @@ app.get('/sfauth', (req, res) => {
 	console.log("SF_CLIENT_SECRET=" + SF_CLIENT_SECRET);
 
 	SF_AUTH_ENDPOINT = SF_DEVAUTH_ENDPOINT + "/authorize";
+	// Authorize URL
+	var oauthURL = SF_AUTH_ENDPOINT + "?response_type=code&client_id=" + SF_CLIENT_ID +
+		"&redirect_uri=" + SF_REDIRECT_URI + "&display=page";
 
-	// Set Data Payload for SF OAuth to start
-	const data = JSON.stringify({
-	  response_type: 'code',
-	  client_id: SF_CLIENT_ID,
-	  redirect_uri: SF_REDIRECT_URI,
-	  display: 'page'
-	})
+    console.log("redirecting: " + oauthURL);
 
-	// Set POST method & headers
-	const options = {
-	  hostname: SF_AUTH_ENDPOINT,
-	  //port: 443,
-	  path: '/authorize',
-	  method: 'POST',
-	  headers: {
-	    'Content-Type': 'application/json',
-	    'Content-Length': data.length
-	  }
-	}
-
-	const auth_req = https.request(options, (res) => {
-	  console.log('statusCode: ${res.statusCode}')
-
-	  res.on('data', (d) => {
-	    process.stdout.write(d)
-	  })
-	})
-
-	auth_req.on('error', (error) => {
-	  console.error(error)
-	})
-
-	auth_req.write(data)
-	auth_req.end()
+    res.redirect(oauthURL);
+    res.end();
 
 })
 
 // Listen for SF Authorization Code response
-app.post('/oauth/_callback', (req, res) => {
+app.get('/oauth/_callback', (req, res) => {
 
 	console.log("/oauth/_callback" + req.method);
+	console.log("## Code:"+req.query.code);
+
+	if (req.query.code){
+
+		var authURL = SF_DEVAUTH_ENDPOINT + "/token";
+
+		// Set Data Payload for SF OAuth to start
+		const data = JSON.stringify({
+	  		code: req.query.code,
+	  		grant_type: 'authorization_code',
+	  		client_id: SF_CLIENT_ID,
+	  		client_secret: SF_CLIENT_SECRET,
+	  		redirect_uri: SF_REDIRECT_URI
+		})
+
+		// Set POST method & headers
+		const options = {
+	  		hostname: SF_AUTH_ENDPOINT,
+	  		//port: 443,
+	  		path: authURL, // auth2/token
+	  		method: 'POST',
+	  		headers: {
+	    		'Content-Type': 'application/json',
+	    		'Content-Length': data.length
+	  		}
+		}
+
+		const auth_req = https.request(options, (res) => {
+	  		console.log('statusCode: ${res.statusCode}')
+
+	  		res.on('data', (d) => {
+	    		process.stdout.write(d)
+	  		})
+		})
+
+		auth_req.on('error', (error) => {
+	  		console.error(error)
+		})
+
+		auth_req.write(data)
+		auth_req.end()
+
+
+	}
+
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
