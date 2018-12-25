@@ -31,7 +31,7 @@ app.use('/static', express.static('public'))
 app.get('/sfauth', (req, res) => {
 	console.log("SF_CLIENT_SECRET=" + SF_CLIENT_SECRET);
 
-	SF_AUTH_ENDPOINT = SF_DEVAUTH_ENDPOINT;
+	SF_AUTH_ENDPOINT = SF_DEVAUTH_ENDPOINT + "/authorize";
 
 	// Set Data Payload for SF OAuth to start
 	const data = JSON.stringify({
