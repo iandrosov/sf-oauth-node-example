@@ -6,6 +6,7 @@ To run this example locally follow these steps
 
 1. Clone repository `git clone https://github.com/iandrosov/sf-oauth-node-example`
 1. Create `.env` file store secure settings
+1. Install NodeJS dependency modules `npm install`
 1. Run app server `node app.js`
 1. Open browser `localhost:5000` 
 
