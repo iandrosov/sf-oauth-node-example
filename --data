@@ -1,0 +1,61 @@
+*   Trying 18.232.172.13...
+* TCP_NODELAY set
+* Connected to api.einstein.ai (18.232.172.13) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [221 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [89 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [4832 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Client hello (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=einstein.ai
+*  start date: Jun  1 00:00:00 2018 GMT
+*  expire date: Jul  1 12:00:00 2019 GMT
+*  subjectAltName: host "api.einstein.ai" matched cert's "*.einstein.ai"
+*  issuer: C=US; O=Amazon; OU=Server CA 1B; CN=Amazon
+*  SSL certificate verify ok.
+> POST /v2/language/sentiment HTTP/1.1
+> Host: api.einstein.ai
+> User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.22 (KHTML, like Gecko) Chrome/11.0.683.0 Safari/534.22
+> Accept: */*
+> Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+> Accept-Language: en-US,en;q=0.8
+> Authorization: Bearer P6IH6NM56WPVQVEEBPI2Z6P4RWD356D7W6FARTGU3TXMEYIA3JU7FGPNNQDBESZQNDHSD2KUWIB23X2NVU7N3FD6WYV5BBWTSJCUIXI
+> Content-Type: multipart/form-data
+> Cache-Control: no-cache
+> 
+< HTTP/1.1 400 Bad Request
+< Content-Type: application/json
+< Date: Wed, 16 Jan 2019 17:21:19 GMT
+< X-RequestID: 00001126-fd89-4c00-9be0-0000006b287d
+< Content-Length: 25
+< Connection: keep-alive
+< 
+{ [25 bytes data]
+* Connection #0 to host api.einstein.ai left intact
+* Rebuilt URL to: modelId=CommunitySentiment&document=the%20presentation%20was%20great%20and%20I%20learned%20a%20lot/
+* Could not resolve host: modelId=CommunitySentiment&document=the%20presentation%20was%20great%20and%20I%20learned%20a%20lot
+* Closing connection 1
+curl: (6) Could not resolve host: modelId=CommunitySentiment&document=the%20presentation%20was%20great%20and%20I%20learned%20a%20lot
