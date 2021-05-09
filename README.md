@@ -1,5 +1,5 @@
 # sf-oauth-node-example
-Salesforce OAuth Web-Server flow example in NodeJS. Many blogs adn samples related to Salesforce API rely on existing packages and bypass teh OAuth details using somethinf like [JSForce](https://jsforce.github.io/) (great, simple library). If we want to understand how OAuth really function with Salesfroce will need to dive bit more into deatils of HTTP headers, formats, post requests adn tokens. This example is for this purpose to explore OAuth Web-Server flow.
+Salesforce OAuth Web-Server flow example in NodeJS. Many blogs and samples related to Salesforce API rely on existing packages and bypass the OAuth details using something like [JSForce](https://jsforce.github.io/) (great, simple library). If we want to understand how OAuth really function with Salesforce, we will need to dive bit more into details of HTTP headers, formats, post requests and tokens. This example is for this purpose to explore OAuth Web-Server flow.
 
 ## Installation to Run Local
 To run this example locally follow these steps
@@ -20,4 +20,4 @@ SF_CLIENT_SECRET=<CONSUMER SECRET>
 SF_REDIRECT_URI=https://localhost:5000/oauth/_callback
 ```
 
-The callback URL shoule be configured as shown in the example.
+The callback URL should be configured as shown in the example.
