@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express')
 const https = require('https')
 
-var curl = require('curlrequest');
+// Remove CURL as volnurable part nad also only temporary use here
+//var curl = require('curlrequest');
 
 const app = express()
 const port = 5000

@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/iandrosov/sf-oauth-node-example#readme",
   "dependencies": {
-    "curlrequest": "^1.0.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4"
   }
